@@ -1,0 +1,47 @@
+function is_integer(n)
+    try
+        cast n to an integer
+        return true
+    except Exception
+        return false
+
+function numbers_of_cats_in_hats()
+    n = input("Enter amount of cats: ")
+    while not is_integer(n)
+        n = input("Enter amount of cats: ")
+    end while
+    n = int(n)
+
+    r = input("Enter amount of rounds: ")
+    while not is_integer(r)
+        r = input("Enter amount of rounds: ")
+    end while
+    r = int(r)
+
+    hats = array of size n filled with 0s
+
+    for round = 1 to r inclusive do
+        for cat = 1 to n inclusive do
+            if cat is divisible by round then
+                if hats[cat-1] is true then
+                    hats[cat-1] = false
+                else
+                    hats[cat-1] = true
+                end if
+            end if
+        end for
+    end for
+
+    cats_with_hats = empty array
+
+    for cat = 1 to n inclusive do
+        if hats[cat-1] is true then
+            append cat to cats_with_hats
+        end if
+    end for
+
+    return cats_with_hats
+end function
+
+print(numbers_of_cats_in_hats())
+
