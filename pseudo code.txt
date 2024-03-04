@@ -21,13 +21,11 @@ function numbers_of_cats_in_hats()
     hats = array of size n filled with 0s
 
     for round = 1 to r inclusive do
-        for cat = 1 to n inclusive do
-            if cat is divisible by round then
-                if hats[cat-1] is true then
-                    hats[cat-1] = false
-                else
-                    hats[cat-1] = true
-                end if
+        for cat = round to n step round do
+            if hats[cat-1] is true then
+                hats[cat-1] = false
+            else
+                hats[cat-1] = true
             end if
         end for
     end for
