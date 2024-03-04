@@ -22,15 +22,13 @@ def numbers_of_cats_in_hats():
         a.append(0)
 
     for j in range(1, r+1):
-        for i in range(1, n+1):
-            if i % j == 0:
-                if a[i-1]:
-                    a[i-1] = 0
-                else:
-                    a[i-1] = 1
+        for i in range(j, n+1, j):
+            if a[i-1]:
+                a[i-1] = 0
+            else:
+                a[i-1] = 1
 
     res = []
-
     for i in range(n):
         if a[i]:
             res.append(i+1)
